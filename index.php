@@ -5,53 +5,39 @@ include 'includes/header.php';
 
 <!-- Hero Section with Gradient Background - RESPONSIVE -->
 <section id="home" class="hero-section relative pt-32 pb-48 md:pb-40 overflow-visible">
-    <!-- Gradient Background - Adjusted opacity for better text visibility -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] via-[#1e3a8a]/50 via-50% to-transparent z-0"></div>
-    
-    <!-- Background Image on Right - Using Unsplash image of Black professionals -->
-    <!-- Alternative images you can use:
-         Professional woman: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2
-         Business team: https://images.unsplash.com/photo-1600880292203-757bb62b4baf
-         Professional man: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d
-         Business woman: https://images.unsplash.com/photo-1580489944761-15a19d654956
-         Team meeting: https://images.unsplash.com/photo-1556761175-5973dc0f32e7
-    -->
-    <div class="absolute inset-0 z-0">
-        <!-- Desktop: Image on right half, Mobile: Full width with lower opacity -->
-        <div class="absolute right-0 top-0 h-full w-full md:w-1/2 bg-cover bg-center opacity-20 md:opacity-30" 
-             style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80');"></div>
-    </div>
-    
-    <!-- Content Overlay - Stronger on mobile for text readability -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] via-[#1e3a8a]/90 to-transparent z-5"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <!-- Text Content - Now properly visible -->
-            <div class="text-white text-center md:text-left">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 fade-in-up leading-tight">
-                    Connecting Talent<br>With Opportunity
-                </h1>
-                <p class="text-lg sm:text-xl mb-6 md:mb-8 fade-in-up stagger-1 text-white leading-relaxed">
-                    Professional Recruitment & HR Outsourcing Solutions
-                </p>
-                <div class="flex flex-col sm:flex-row flex-wrap gap-4 fade-in-up stagger-2 justify-center md:justify-start">
-                    <a href="jobs.php" class="bg-[#E91E8C] hover:bg-[#D4145A] text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-center">
-                        Browse Jobs
-                    </a>
-                    <a href="services.php" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#1e3a8a] transition-all text-center">
-                        Hire Talent
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Optional: Add image here on desktop if needed -->
-            <div class="hidden md:block">
-                <!-- This space is for the background image visible on the right -->
+<!-- Background Image on Right - Clear and visible -->
+<div class="absolute inset-0 z-0">
+    <div class="absolute right-0 top-10 h-full w-full md:w-1/2 bg-cover bg-center" 
+         style="background-image: url('./assets/images/banner.jpeg');"></div>
+</div>
+
+<!-- Gradient Overlay - Seamlessly blends into the image -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] from-0% via-[#1e3a8a]/95 via-35% via-[#1e3a8a]/60 via-60% to-transparent to-99% z-5"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <!-- Text Content -->
+        <div class="text-white text-center md:text-left">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 fade-in-up leading-tight">
+                Connecting Talent<br>With Opportunity
+            </h1>
+            <p class="text-lg sm:text-xl mb-6 md:mb-8 fade-in-up stagger-1 text-white leading-relaxed">
+                Professional Recruitment & HR Outsourcing Solutions
+            </p>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 fade-in-up stagger-2 justify-center md:justify-start">
+                <a href="jobs.php" class="bg-[#E91E8C] hover:bg-[#D4145A] text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-center">
+                    Browse Jobs
+                </a>
+                <a href="services.php" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#1e3a8a] transition-all text-center">
+                    Hire Talent
+                </a>
             </div>
         </div>
+        
+        <!-- Right side - space for clear image -->
+        <div class="hidden md:block"></div>
     </div>
-    
+</div>
     <!-- Service Icons Bar - Fixed positioning with higher z-index -->
     <div class="absolute -bottom-28 sm:-bottom-24 md:-bottom-20 left-0 right-0 z-50 px-4">
         <div class="max-w-7xl mx-auto">
@@ -123,8 +109,6 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
-
-
 
 <!-- Quick Services Overview -->
 <section class="py-20 bg-white">

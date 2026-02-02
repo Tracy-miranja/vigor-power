@@ -237,7 +237,7 @@ include 'includes/header.php';
             Whether you're seeking talent or opportunities, we're here to help
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-            <a href="contact.php" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all">
+            <a href="contact.php" class="bg-[#E91E8C] hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all">
                 Contact Us
             </a>
             <a href="services.php" class="bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold transition-all">

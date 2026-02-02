@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label class="block text-gray-700 font-semibold mb-2">Message *</label>
                         <textarea name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Tell us about your needs..."></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-4 rounded-lg font-semibold relative transition-all">
+                    <button type="submit" class="w-full bg-[#E91E8C] hover:bg-orange-600 text-white px-6 py-4 rounded-lg font-semibold relative transition-all">
                         Send Message
                     </button>
                 </form>
