@@ -5,10 +5,28 @@ include 'includes/header.php';
 
 <!-- Page Header -->
 <section class="page-header text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Background Image on Right - Clear and visible -->
+<div class="absolute inset-0 z-0">
+    <div class="absolute right-0 top-10 h-full w-full md:w-1/2 bg-cover bg-center" 
+         style="background-image: url('./assets/images/service.jpeg');"></div>
+</div>
+
+<!-- Gradient Overlay - Seamlessly blends into the image -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] from-0% via-[#1e3a8a]/95 via-35% via-[#1e3a8a]/60 via-60% to-transparent to-99% z-5"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+       
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h1 class="text-5xl md:text-6xl font-bold mb-4">Our Services</h1>
         <p class="text-xl text-blue-100">Comprehensive recruitment and HR solutions tailored to your needs</p>
     </div>
+        
+        <!-- Right side - space for clear image -->
+        <div class="hidden md:block"></div>
+    </div>
+</div>
+   
 </section>
 
 <!-- Services Content -->
@@ -58,7 +76,7 @@ include 'includes/header.php';
                 </div>
                 <div>
                     <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 flex items-center justify-center">
-                        <img src="./assets/images/Recruitment.png" alt="Recruitment & Selection" class="w-full h-64 object-cover rounded-lg">
+                        <img src="./assets/images/rec.png" alt="Recruitment & Selection" class="w-full h-64 object-cover rounded-lg">
                     </div>
                 </div>
             </div>
@@ -167,7 +185,7 @@ include 'includes/header.php';
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
                     <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 flex items-center justify-center">
-                        <img src="./assets/images/departure.png" alt="Pre-Departure Training" class="w-full h-64 object-cover rounded-lg">
+                        <img src="./assets/images/train.png" alt="Pre-Departure Training" class="w-full h-64 object-cover rounded-lg">
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
@@ -265,7 +283,7 @@ include 'includes/header.php';
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
                     <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 flex items-center justify-center">
-                        <img src="./assets/images/portal.png" alt="Job Portal Access" class="w-full h-64 object-cover rounded-lg">
+                        <img src="./assets/images/jobs.png" alt="Job Portal Access" class="w-full h-64 object-cover rounded-lg">
                     </div>
                 </div>
                 <div class="order-1 md:order-2">

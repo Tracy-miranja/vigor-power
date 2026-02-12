@@ -27,7 +27,7 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li>+254 202 400 254</li>
+                        <li>+254 753 174 097</li>
                         <li>+254 794 174 097</li>
                         <li>info@vigormanpower.com</li>
                     </ul>
@@ -40,5 +40,14 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
+</script>
+
 </body>
 </html>

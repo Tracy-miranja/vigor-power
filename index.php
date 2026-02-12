@@ -161,6 +161,89 @@ include 'includes/header.php';
     </div>
 </section>
 
+<!-- Job Categories Section -->
+<section class="py-20 bg-white">
+
+<?php
+$categories = [
+
+  ["name"=>"Domestic Workers","slug"=>"domestic","icon"=>"home"],
+  ["name"=>"Hospitality","slug"=>"hospitality","icon"=>"utensils"],
+  ["name"=>"Drivers","slug"=>"drivers","icon"=>"truck"],
+  ["name"=>"Security Guards","slug"=>"security","icon"=>"shield-halved"],
+  ["name"=>"Health & Medical","slug"=>"health","icon"=>"heart-pulse"],
+  ["name"=>"Factory Workers","slug"=>"factory","icon"=>"industry"],
+  ["name"=>"Teachers","slug"=>"teachers","icon"=>"chalkboard-user"],
+  ["name"=>"Farm / Garden","slug"=>"farm","icon"=>"seedling"],
+  ["name"=>"Construction","slug"=>"construction","icon"=>"helmet-safety"],
+  ["name"=>"Logistics","slug"=>"logistics","icon"=>"boxes-stacked"],
+  ["name"=>"IT","slug"=>"it","icon"=>"laptop-code"],
+  ["name"=>"Finance","slug"=>"finance","icon"=>"coins"],
+  ["name"=>"Media","slug"=>"media","icon"=>"bullhorn"],
+  ["name"=>"Aviation","slug"=>"aviation","icon"=>"plane"]
+
+];
+?>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="grid md:grid-cols-2 gap-10 items-center">
+
+<!-- Left -->
+<div data-aos="fade-right">
+
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+Job Categories
+</h2>
+
+<h3 class="text-xl font-semibold text-[#1e3a8a] mb-6">
+Key Recruitment Areas
+</h3>
+
+<div class="grid sm:grid-cols-2 gap-4">
+
+<?php foreach($categories as $cat): ?>
+
+<a href="jobs.php?category=<?php echo $cat['slug']; ?>"
+   class="flex items-center gap-3 p-3 border rounded-lg
+          hover:bg-[#1e3a8a]/5 hover:border-[#1e3a8a]
+          transition">
+
+<!-- Icon -->
+<i class="fas fa-<?php echo $cat['icon']; ?> text-[#E91E8C] text-lg"></i>
+
+<!-- Name -->
+<span class="font-medium text-gray-700">
+<?php echo $cat['name']; ?>
+</span>
+
+</a>
+
+<?php endforeach; ?>
+
+</div>
+
+</div>
+
+
+<!-- Right Image -->
+<div data-aos="fade-left"
+     class="h-[450px] rounded-xl overflow-hidden shadow-lg">
+
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 hover:scale-105"
+     style="background-image: url('./assets/images/category.jpeg');">
+
+<div class="w-full h-full bg-black/30"></div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
 <!-- Featured Jobs Section -->
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,14 +254,12 @@ include 'includes/header.php';
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php
-            $featuredJobs = [
-                ["title" => "Registered Nurse", "location" => "Saudi Arabia", "type" => "Full-time", "category" => "Healthcare"],
-                ["title" => "Hotel Manager", "location" => "UAE", "type" => "Full-time", "category" => "Hospitality"],
-                ["title" => "Civil Engineer", "location" => "Qatar", "type" => "Contract", "category" => "Construction"],
-                ["title" => "Software Developer", "location" => "Kenya", "type" => "Full-time", "category" => "IT"],
-                ["title" => "Security Supervisor", "location" => "Kuwait", "type" => "Full-time", "category" => "Security"],
-                ["title" => "Accountant", "location" => "Nairobi", "type" => "Full-time", "category" => "Finance"],
-            ];
+          $featuredJobs = [
+    ["title" => "Labourer", "location" => "Saudi Arabia", "type" => "Full-time", "salary" => "1400 SAR", "category" => "Construction"],
+    ["title" => "Electrical Technician", "location" => "Saudi Arabia", "type" => "Full-time", "salary" => "1700 SAR", "category" => "Technical"],
+    ["title" => "Boom Truck Driver", "location" => "Saudi Arabia", "type" => "Full-time", "salary" => "2000 SAR", "category" => "Driving"],
+];
+
 
             foreach ($featuredJobs as $job):
             ?>
@@ -194,7 +275,13 @@ include 'includes/header.php';
                 </div>
                 <div class="flex items-center justify-between">
                     <span class="text-sm text-gray-500"><?php echo $job['type']; ?></span>
-                    <a href="apply.php" class="text-[#E91E8C] font-semibold hover:text-[#D4145A]">Apply Now →</a>
+                    <!-- <a href="apply.php" class="text-[#E91E8C] font-semibold hover:text-[#D4145A]">Apply Now →</a> -->
+                     <a href="javascript:void(0)" 
+   onclick="openApplyModal('<?php echo $job['title']; ?>')" 
+   class="text-[#E91E8C] font-semibold hover:text-[#D4145A]">
+   Apply Now →
+</a>
+
                 </div>
             </div>
             <?php endforeach; ?>
@@ -216,7 +303,7 @@ include 'includes/header.php';
             Whether you're looking for talent or seeking opportunities, we're here to help
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-            <a href="apply.php" class="bg-[#E91E8C] hover:bg-[#D4145A] text-white px-8 py-4 rounded-lg font-semibold transition-all shadow-lg">
+            <a href="jobs.php" class="bg-[#E91E8C] hover:bg-[#D4145A] text-white px-8 py-4 rounded-lg font-semibold transition-all shadow-lg">
                 Apply for Jobs
             </a>
             <a href="contact.php" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#1e3a8a] transition-all">
@@ -225,5 +312,66 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
+<!-- Apply Modal -->
+<div id="applyModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-lg p-6 w-full max-w-md text-center relative">
+
+        <!-- Close Button -->
+        <button onclick="closeApplyModal()" 
+                class="absolute top-2 right-3 text-gray-500 text-xl">
+            &times;
+        </button>
+
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+            Apply for This Job
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Send your CV to:
+        </p>
+
+       <a id="applyEmailLink"
+   href="mailto:info@vigormanpower.com"
+   target="_blank"
+   class="text-[#E91E8C] font-semibold text-lg hover:underline">
+   info@vigormanpower.com
+        </a>
+
+        <!-- <p class="text-sm text-gray-500 mt-4">
+            Click the email to send your CV
+        </p> -->
+
+    </div>
+
+</div>
+<script>
+function openApplyModal(jobTitle) {
+
+    const modal = document.getElementById('applyModal');
+    const emailLink = document.getElementById('applyEmailLink');
+
+    const email = "info@vigormanpower.com"; 
+    const subject = "Job Application - " + jobTitle;
+
+    // Properly encode subject
+    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject);
+
+    emailLink.setAttribute("href", mailtoLink);
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeApplyModal() {
+
+    const modal = document.getElementById('applyModal');
+
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+</script>
+
+
 
 <?php include 'includes/footer.php'; ?>

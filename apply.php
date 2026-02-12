@@ -1,11 +1,122 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 $pageTitle = "Apply Now - Vigor Manpower Solutions";
 include 'includes/header.php';
 
-// Handle form submission
+$success_message = '';
+$error_message = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Here you would typically process the form data and handle file uploads
-    $success_message = "Your application has been submitted successfully! We will review your details and get back to you soon.";
+
+    function clean($data) {
+        return htmlspecialchars(trim($data));
+    }
+
+    // Collect data
+    $first_name = clean($_POST['first_name']);
+    $last_name  = clean($_POST['last_name']);
+    $email      = clean($_POST['email']);
+    $phone      = clean($_POST['phone']);
+    $nationality= clean($_POST['nationality']);
+    $experience = clean($_POST['years_experience']);
+    $job_category = clean($_POST['job_category']);
+    $location     = clean($_POST['preferred_location']);
+    $skills     = clean($_POST['skills']);
+    $comments   = clean($_POST['comments']);
+
+    /* =====================
+       CV UPLOAD
+    ===================== */
+    if (!isset($_FILES['cv']) || $_FILES['cv']['error'] !== 0) {
+        $error_message = "CV upload failed.";
+    } else {
+
+        $allowed = ['pdf','doc','docx'];
+        $cvName  = $_FILES['cv']['name'];
+        $cvTmp   = $_FILES['cv']['tmp_name'];
+        $cvSize  = $_FILES['cv']['size'];
+        $ext     = strtolower(pathinfo($cvName, PATHINFO_EXTENSION));
+
+        if (!in_array($ext, $allowed)) {
+            $error_message = "Invalid CV format.";
+        } elseif ($cvSize > 5 * 1024 * 1024) {
+            $error_message = "CV exceeds 5MB.";
+        } else {
+
+            $cvNewName = time().'_'.$cvName;
+           $uploadDir = __DIR__ . '/uploads/cv/';
+
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
+}
+
+if (!is_writable($uploadDir)) {
+    die("Upload directory is not writable");
+}
+
+$cvNewName = time().'_'.basename($cvName);
+$cvPath = $uploadDir . $cvNewName;
+
+if (!move_uploaded_file($cvTmp, $cvPath)) {
+    die("Failed to move uploaded file");
+}
+
+
+            $mail = new PHPMailer(true);
+
+            try {
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'your@email.com';
+                $mail->Password   = 'your_app_password';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port       = 587;
+
+                $mail->setFrom('your@email.com', 'Vigor Manpower Solutions');
+                $mail->addAddress('recruitment@vigormanpower.com');
+                $mail->addReplyTo($email, $first_name.' '.$last_name);
+
+                // Attach CV
+                $mail->addAttachment($cvPath);
+
+                // Optional attachments
+                if (!empty($_FILES['cover_letter']['tmp_name'])) {
+                    $mail->addAttachment($_FILES['cover_letter']['tmp_name'], $_FILES['cover_letter']['name']);
+                }
+                if (!empty($_FILES['id_copy']['tmp_name'])) {
+                    $mail->addAttachment($_FILES['id_copy']['tmp_name'], $_FILES['id_copy']['name']);
+                }
+
+                $mail->isHTML(true);
+                $mail->Subject = "New Job Application – $first_name $last_name";
+
+                $mail->Body = "
+                <h3>New Job Application</h3>
+                <strong>Name:</strong> $first_name $last_name<br>
+                <strong>Email:</strong> $email<br>
+                <strong>Phone:</strong> $phone<br>
+                <strong>Nationality:</strong> $nationality<br>
+                <strong>Experience:</strong> $experience<br>
+                <strong>Job Category:</strong> $job_category<br>
+                <strong>Preferred Location:</strong> $location<br><br>
+                <strong>Skills:</strong> $skills<br>
+                <strong>Comments:</strong> $comments
+                ";
+
+                $mail->send();
+                $success_message = "Your application has been submitted successfully!";
+            } catch (Exception $e) {
+                $error_message = "Email failed: ".$mail->ErrorInfo;
+            }
+        }
+    }
 }
 ?>
 

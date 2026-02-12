@@ -2,14 +2,38 @@
 $pageTitle = "About Us - Vigor Manpower Solutions";
 include 'includes/header.php';
 ?>
-
 <!-- Page Header -->
 <section class="page-header text-white">
+    <!-- Background Image on Right - Clear and visible -->
+<div class="absolute inset-0 z-0">
+    <div class="absolute right-0 top-10 h-full w-full md:w-1/2 bg-cover bg-center" 
+         style="background-image: url('./assets/images/about.jpeg');"></div>
+</div>
+
+<!-- Gradient Overlay - Seamlessly blends into the image -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] from-0% via-[#1e3a8a]/95 via-35% via-[#1e3a8a]/60 via-60% to-transparent to-99% z-5"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+       
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+         <h1 class="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
+        <p class="text-xl text-blue-100">Your trusted partner in connecting talent with opportunity</p>
+    </div>
+        
+        <!-- Right side - space for clear image -->
+        <div class="hidden md:block"></div>
+    </div>
+</div>
+   
+</section>
+<!-- Page Header -->
+<!-- <section class="page-header text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h1 class="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
         <p class="text-xl text-blue-100">Your trusted partner in connecting talent with opportunity</p>
     </div>
-</section>
+</section> -->
 
 <!-- Main Content -->
 <section class="py-20 bg-white">
@@ -58,7 +82,8 @@ include 'includes/header.php';
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                 <p class="text-gray-700 leading-relaxed">
-                    To empower our partners by connecting the right people with the right opportunities through strategic, ethical, and efficient recruitment practices. We strive to make a positive impact on both individuals' careers and organizations' success.
+                   We strive to achieve the best for our partners through outsourcing, strategically selecting, recruiting
+and placing the best suited candidates to the available opportunities in the job market.
                 </p>
             </div>
             <div class="bg-blue-50 rounded-2xl p-8">
@@ -70,7 +95,7 @@ include 'includes/header.php';
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                 <p class="text-gray-700 leading-relaxed">
-                    To be recognized across Kenya and internationally as the most trusted support network for employers seeking talent and individuals seeking meaningful employment. We envision a future where every placement creates lasting value.
+                    To be globally acknowledged by employers and employees as an integral part of their support network.
                 </p>
             </div>
         </div>

@@ -16,13 +16,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!-- Page Header -->
 <section class="page-header text-white">
+    <!-- Background Image on Right - Clear and visible -->
+<div class="absolute inset-0 z-0">
+    <div class="absolute right-0 top-10 h-full w-full md:w-1/2 bg-cover bg-center" 
+         style="background-image: url('./assets/images/contact.jpeg');"></div>
+</div>
+
+<!-- Gradient Overlay - Seamlessly blends into the image -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] from-0% via-[#1e3a8a]/95 via-35% via-[#1e3a8a]/60 via-60% to-transparent to-99% z-5"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+       
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+       <h1 class="text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
+        <p class="text-xl text-blue-100">We're here to answer your questions and help you get started</p>
+    </div>
+        
+        <!-- Right side - space for clear image -->
+        <div class="hidden md:block"></div>
+    </div>
+</div>
+   
+</section>
+<!-- Page Header -->
+<!-- <section class="page-header text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h1 class="text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
         <p class="text-xl text-blue-100">We're here to answer your questions and help you get started</p>
     </div>
-</section>
+</section> -->
 
 <!-- Contact Section -->
 <section class="py-20 bg-white">

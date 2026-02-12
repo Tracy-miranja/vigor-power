@@ -27,7 +27,7 @@ h1, h2, h3 {
 
 .page-header {
     background: linear-gradient(135deg, var(--primary-dark) 0%, #2563eb 100%);
-    padding: 4rem 0 5rem;
+    padding: 10rem 0 5rem;
     position: relative;
     overflow: hidden;
 }
@@ -506,11 +506,30 @@ h1, h2, h3 {
 
 <!-- Page Header -->
 <section class="page-header text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h1 class="text-5xl md:text-6xl font-bold mb-4">Available Jobs</h1>
+    <!-- Background Image on Right - Clear and visible -->
+<div class="absolute inset-0 z-0">
+    <div class="absolute right-0 top-6 h-full w-full md:w-1/2 bg-cover bg-center" 
+         style="background-image: url('./assets/images/job.jpeg');"></div>
+</div>
+
+<!-- Gradient Overlay - Seamlessly blends into the image -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] from-0% via-[#1e3a8a]/95 via-35% via-[#1e3a8a]/60 via-60% to-transparent to-99% z-5"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+       
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Available Jobs</h1>
         <p class="text-xl text-blue-100">Explore opportunities across diverse industries and sectors</p>
     </div>
+        
+        <!-- Right side - space for clear image -->
+        <div class="hidden md:block"></div>
+    </div>
+</div>
+   
 </section>
+
 
 <!-- Job Listings with Sidebar -->
 <div class="jobs-container">
@@ -609,116 +628,93 @@ h1, h2, h3 {
         <!-- Job Listings -->
         <div id="jobListings">
             <?php
-            $allJobs = [
-                [
-                    "id" => 1,
-                    "title" => "Registered Nurse - ICU",
-                    "company" => "King Fahd Medical City",
-                    "location" => "Riyadh, Saudi Arabia",
-                    "type" => "Full-time",
-                    "category" => "Healthcare",
-                    "salary" => "$3,500 - $4,500/month",
-                    "description" => "Experienced ICU nurse needed for a leading medical facility. Minimum 3 years experience required.",
-                    "requirements" => ["Bachelor's degree in Nursing", "Valid nursing license", "ICU experience", "Excellent communication skills"],
-                    "posted" => "2 days ago"
-                ],
-                [
-                    "id" => 2,
-                    "title" => "Hotel Manager",
-                    "company" => "Jumeirah Group",
-                    "location" => "Dubai, UAE",
-                    "type" => "Full-time",
-                    "category" => "Hospitality",
-                    "salary" => "$4,000 - $6,000/month",
-                    "description" => "Seeking an experienced hotel manager for a luxury 5-star property.",
-                    "requirements" => ["10+ years hospitality experience", "Hotel management degree", "Leadership skills", "Fluent in English"],
-                    "posted" => "3 days ago"
-                ],
-                [
-                    "id" => 3,
-                    "title" => "Civil Engineer",
-                    "company" => "Qatar Construction",
-                    "location" => "Doha, Qatar",
-                    "type" => "Contract",
-                    "category" => "Construction",
-                    "salary" => "$5,000 - $7,000/month",
-                    "description" => "Civil engineer needed for major infrastructure project. 2-year contract.",
-                    "requirements" => ["Bachelor's in Civil Engineering", "5+ years experience", "Project management", "AutoCAD proficiency"],
-                    "posted" => "5 days ago"
-                ],
-                [
-                    "id" => 4,
-                    "title" => "Software Developer",
-                    "company" => "Tech Innovators Ltd",
-                    "location" => "Nairobi, Kenya",
-                    "type" => "Full-time",
-                    "category" => "IT",
-                    "salary" => "KSh 150,000 - 250,000/month",
-                    "description" => "Full-stack developer for growing tech startup. Exciting opportunity!",
-                    "requirements" => ["Computer Science degree", "3+ years experience", "JavaScript, React, Node.js", "Problem-solving skills"],
-                    "posted" => "1 week ago"
-                ],
-                [
-                    "id" => 5,
-                    "title" => "Security Supervisor",
-                    "company" => "Gulf Security Services",
-                    "location" => "Kuwait City, Kuwait",
-                    "type" => "Full-time",
-                    "category" => "Security",
-                    "salary" => "$2,500 - $3,500/month",
-                    "description" => "Supervisor role for corporate security team. Leadership experience essential.",
-                    "requirements" => ["Security management experience", "Supervisory skills", "First aid certified", "Clean record"],
-                    "posted" => "1 week ago"
-                ],
-                [
-                    "id" => 6,
-                    "title" => "Accountant - Senior Level",
-                    "company" => "Finance Corp Kenya",
-                    "location" => "Nairobi, Kenya",
-                    "type" => "Full-time",
-                    "category" => "Finance",
-                    "salary" => "KSh 180,000 - 300,000/month",
-                    "description" => "Senior accountant for multinational corporation. CPA required.",
-                    "requirements" => ["CPA qualification", "7+ years experience", "Financial reporting", "ERP systems knowledge"],
-                    "posted" => "2 weeks ago"
-                ],
-                [
-                    "id" => 7,
-                    "title" => "English Teacher",
-                    "company" => "International School Dubai",
-                    "location" => "Dubai, UAE",
-                    "type" => "Full-time",
-                    "category" => "Education",
-                    "salary" => "$3,000 - $4,000/month",
-                    "description" => "English teacher for international curriculum. Native speaker preferred.",
-                    "requirements" => ["Teaching degree/certificate", "Native English speaker", "2+ years experience", "TEFL certification"],
-                    "posted" => "3 days ago"
-                ],
-                [
-                    "id" => 8,
-                    "title" => "Chef de Partie",
-                    "company" => "Luxury Resort Maldives",
-                    "location" => "Maldives",
-                    "type" => "Full-time",
-                    "category" => "Hospitality",
-                    "salary" => "$2,800 - $3,800/month",
-                    "description" => "Experienced chef for luxury resort kitchen. International cuisine expertise.",
-                    "requirements" => ["Culinary diploma", "5+ years experience", "International cuisine", "Team player"],
-                    "posted" => "1 week ago"
-                ],
-                [
-                    "id" => 9,
-                    "title" => "Warehouse Manager",
-                    "company" => "Logistics Plus",
-                    "location" => "Mombasa, Kenya",
-                    "type" => "Full-time",
-                    "category" => "Logistics",
-                    "salary" => "KSh 120,000 - 180,000/month",
-                    "description" => "Warehouse manager for busy logistics operation. Inventory management essential.",
-                    "requirements" => ["Logistics/supply chain degree", "Warehouse management", "Inventory systems", "Leadership skills"],
-                    "posted" => "4 days ago"
-                ]
-            ];
+           $allJobs = [
+    [
+        "id" => 1,
+        "title" => "Labourer",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Construction",
+        "salary" => "1400 SAR/month",
+        "description" => "General labourers required for ongoing civil construction projects in Saudi Arabia.",
+        "requirements" => ["Physically fit", "Construction site experience preferred", "Valid passport"],
+        "posted" => "1 day ago"
+    ],
+    [
+        "id" => 2,
+        "title" => "Electrical Technician",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Construction",
+        "salary" => "1700 SAR/month",
+        "description" => "Electrical technicians needed for industrial and civil construction works.",
+        "requirements" => ["Electrical certification", "Minimum 2 years experience", "Ability to read wiring diagrams"],
+        "posted" => "1 day ago"
+    ],
+    [
+        "id" => 3,
+        "title" => "Boom Truck Driver",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Construction",
+        "salary" => "2000 SAR/month",
+        "description" => "Boom truck drivers required for material lifting and transport at project sites.",
+        "requirements" => ["Valid heavy vehicle license", "Boom truck experience", "Safety awareness"],
+        "posted" => "1 day ago"
+    ],
+    [
+        "id" => 4,
+        "title" => "Tea Boy",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Support Staff",
+        "salary" => "1400 SAR/month",
+        "description" => "Tea boys required to support site staff with refreshments and cleaning duties.",
+        "requirements" => ["Basic communication skills", "Hardworking", "Presentable"],
+        "posted" => "1 day ago"
+    ],
+    [
+        "id" => 5,
+        "title" => "Pipe Fabricator",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Construction",
+        "salary" => "1600 SAR/month",
+        "description" => "Pipe fabricators needed for industrial piping and civil construction projects.",
+        "requirements" => ["Pipe fabrication experience", "Ability to read drawings", "Technical skills"],
+        "posted" => "1 day ago"
+    ],
+    [
+        "id" => 6,
+        "title" => "Pipe Welder",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Construction",
+        "salary" => "1600 SAR/month",
+        "description" => "Pipe welders required for on-site welding and installation works.",
+        "requirements" => ["Welding certification", "Pipeline welding experience", "Safety compliance"],
+        "posted" => "1 day ago"
+    ],
+    [
+        "id" => 7,
+        "title" => "Piping Foreman",
+        "company" => "Saudi Construction Company",
+        "location" => "Saudi Arabia",
+        "type" => "Full-time",
+        "category" => "Construction",
+        "salary" => "2300 SAR/month",
+        "description" => "Experienced piping foreman required to supervise piping teams and site activities.",
+        "requirements" => ["5+ years piping supervision experience", "Leadership skills", "Drawing interpretation"],
+        "posted" => "1 day ago"
+    ]
+];
+
 
             // Convert to JSON for JavaScript
             echo "<script>const allJobsData = " . json_encode($allJobs) . ";</script>";
@@ -770,7 +766,13 @@ h1, h2, h3 {
                 
                 <div class="job-footer">
                     <span class="job-posted">Posted <?php echo $job['posted']; ?></span>
-                    <a href="apply.php" class="btn-apply">Apply Now</a>
+                    <!-- <a href="apply.php" class="btn-apply">Apply Now</a> -->
+                     <a href="javascript:void(0)" 
+   onclick="openApplyModal('<?php echo $job['title']; ?>')" 
+   class="text-[#E91E8C] font-semibold hover:text-[#D4145A]">
+   Apply Now →
+</a>
+
                 </div>
             </div>
             <?php endforeach; ?>
@@ -792,7 +794,13 @@ h1, h2, h3 {
     <div class="cta-content">
         <h2>Didn't Find What You're Looking For?</h2>
         <p>Submit your CV and we'll match you with suitable opportunities</p>
-        <a href="apply.php" class="btn-cta">Submit Your CV</a>
+        <!-- <a href="apply.php" class="btn-cta">Submit Your CV</a> -->
+         <a href="javascript:void(0)" 
+   onclick="openApplyModal('<?php echo $job['title']; ?>')" 
+   class="text-[#E91E8C] font-semibold hover:text-[#D4145A]">
+   Submit CV →
+</a>
+
     </div>
 </section>
 
@@ -958,5 +966,66 @@ advertsContainer.addEventListener('mouseleave', () => {
 // Start auto-scroll
 autoScroll();
 </script>
+
+<!-- Apply Modal -->
+<div id="applyModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-lg p-6 w-full max-w-md text-center relative">
+
+        <!-- Close Button -->
+        <button onclick="closeApplyModal()" 
+                class="absolute top-2 right-3 text-gray-500 text-xl">
+            &times;
+        </button>
+
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+            Apply for This Job
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Send your CV to:
+        </p>
+
+       <a id="applyEmailLink"
+   href="mailto:info@vigormanpower.com"
+   target="_blank"
+   class="text-[#E91E8C] font-semibold text-lg hover:underline">
+   info@vigormanpower.com
+        </a>
+
+        <!-- <p class="text-sm text-gray-500 mt-4">
+            Click the email to send your CV
+        </p> -->
+
+    </div>
+
+</div>
+<script>
+function openApplyModal(jobTitle) {
+
+    const modal = document.getElementById('applyModal');
+    const emailLink = document.getElementById('applyEmailLink');
+
+    const email = "info@vigormanpower.com"; 
+    const subject = "Job Application - " + jobTitle;
+
+    // Properly encode subject
+    const mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject);
+
+    emailLink.setAttribute("href", mailtoLink);
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeApplyModal() {
+
+    const modal = document.getElementById('applyModal');
+
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+</script>
+
 
 <?php include 'includes/footer.php'; ?>

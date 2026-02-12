@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     
     <style>
         /* Font Family Setup */
@@ -230,7 +232,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 hidden">
+                            <div class="dropdown-menu absolute left-0 mt-0 w-64 bg-white rounded-lg shadow-xl py-2 hidden">
                                 <a href="services.php#recruitment" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                                     <div class="font-semibold">Recruitment & Selection</div>
                                     <div class="text-sm text-gray-500">Strategic talent acquisition</div>
@@ -264,7 +266,7 @@
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <a href="apply.php" class="btn-primary bg-[#E91E8C] hover:bg-[#D4145A]  text-white px-6 py-3 rounded-lg font-medium relative transition-all">
+                    <a href="jobs.php" class="btn-primary bg-[#E91E8C] hover:bg-[#D4145A]  text-white px-6 py-3 rounded-lg font-medium relative transition-all">
                         Apply Now
                     </a>
                 </div>
@@ -287,7 +289,7 @@
                 <a href="jobs.php" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">Jobs</a>
                 <a href="about.php" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">About</a>
                 <a href="contact.php" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">Contact</a>
-                <a href="apply.php" class="block px-3 py-2 bg-orange-500 text-white hover:bg-orange-600 rounded-md text-center font-medium">Apply Now</a>
+                <a href="jobs.php" class="block px-3 py-2 bg-orange-500 text-white hover:bg-orange-600 rounded-md text-center font-medium">Apply Now</a>
             </div>
         </div>
     </nav>
